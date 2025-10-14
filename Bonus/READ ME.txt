@@ -1,0 +1,11 @@
+The program of interest is stabletests.m. A time series goes in, and the various test p-values come out.
+
+See the detailed help file in stabletests.m for explicit instruction.
+
+It is designed as a black box for ease of use, and entails on each call, loading tables (data relevant to 
+calculation of the p-values). As such, when called multiple times, it will be much slower than pre-loading 
+these tables, and then calculating the test statistics and their p-values.
+
+
+ 
+

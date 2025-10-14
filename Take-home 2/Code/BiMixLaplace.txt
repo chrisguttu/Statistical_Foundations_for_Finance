@@ -1,0 +1,40 @@
+'''
+Inputs:
+    num_samples: The number of samples to simulate
+    mu1: The mean of the first component
+    mu2: The mean of the second component
+    b1: The scale parameter of the first component
+    b2: The scale parameter of the second component
+    p: The probability of the first component
+    sigma1: The covariance matrix of the first component (represent "good" state)
+    sigma2: The covariance matrix of the second (represent "bad" state)
+Outputs:
+    samples: The simulated samples
+'''
+
+def simulate_mixture(num_samples, mu1, mu2, b1, b2, Sigma1, Sigma2, p):
+    # Generate G samples from the Gamma distribution
+    G = np.random.gamma(1, p, num_samples)
+
+    # Decide the probability for each sample
+    sampleProbability = np.random.choice([1, 2], size=num_samples, p=[p, 1-p])
+
+    # Initialize samples array
+    samples = np.zeros((num_samples, 2))
+
+    # Simulate samples for each component
+    for i in range(num_samples):
+        if sampleProbability[i] == 1:
+            Sigma = Sigma1
+            b = b1
+        else:
+            Sigma = Sigma2
+            b = b2
+
+        # Simulate Y samples from a multivariate normal distribution
+        Y = np.random.multivariate_normal([mu1, mu2], Sigma * G[i])
+
+        # Assign the sample to the array
+        samples[i] = Y
+
+    return samples

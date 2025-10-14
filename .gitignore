@@ -1,0 +1,45 @@
+# --- Take-home 1 rules ---
+
+# Include everything by default
+!Take-home 1/**
+
+# Ignore unwanted file types everywhere (including Code folder)
+Take-home 1/**/*.R
+Take-home 1/**/*.rmd
+Take-home 1/*.docx
+Take-home 1/*.ipynb
+Take-home 1/*.py
+
+# Keep PDFs anywhere
+!Take-home 1/**/*.pdf
+
+
+# --- Take-home 2 rules ---
+
+# Include everything by default
+!Take-home 2/**
+
+# Ignore unwanted file types everywhere (including Code folder)
+Take-home 2/**/*.R
+Take-home 2/**/*.rmd
+Take-home 2/*.docx
+
+# Keep PDFs anywhere
+!Take-home 2/**/*.pdf
+
+
+# --- Global ignores ---
+*.sqlite
+*.xlsx
+*.csv
+*.png
+*.jpg
+*.jpeg
+*.bak
+*.tmp
+*.log
+.Rhistory
+.Rproj.user/
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
